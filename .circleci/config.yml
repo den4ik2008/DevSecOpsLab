@@ -1,9 +1,9 @@
 version: 2
  jobs:
   one:
-    docker:
-      - image: circleci/python:3.7.
-    steps:
+   docker:
+     - image: circleci/python:3.7.
+   steps:
       - checkout
       - run: ls -l
       - run: mkdir mylab
