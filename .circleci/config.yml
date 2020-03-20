@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   one:
    docker:
@@ -24,7 +24,7 @@ jobs:
        at: mylab
      - run: cat mylab/mylab.txt
 workflows:
- version: 2
+ version: 2.1
  one_and_two:
    jobs:
      - one
