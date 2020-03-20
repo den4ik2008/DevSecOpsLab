@@ -10,6 +10,7 @@ jobs:
       - run: cd mylab
       - run: touch mylab
       - run: ls -l
+      - run: pwd
       - run: echo "I'm here"
       - persist_to_workspace:
          root: mylab
