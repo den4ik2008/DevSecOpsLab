@@ -8,12 +8,13 @@ jobs:
       - run: ls -l
       - run: mkdir mylab
       - run: cd mylab
-      - run: touch mylab.txt
+      - run: touch mylab
+      - run: ls -l
       - run: echo "I'm here"
       - persist_to_workspace:
          root: mylab
          paths: 
-          - mylab.txt
+          - mylab
   two:
    docker:
      - image: circleci/python:3.7
