@@ -10,7 +10,7 @@ jobs:
       - run: touch mylab/mylab.txt
       - run: ls -l mylab/
       - run: pwd
-      - run: echo "I'm here"
+      - run: echo "I'm here" > mylab/mylab.txt
       - persist_to_workspace:
          root: mylab
          paths: 
