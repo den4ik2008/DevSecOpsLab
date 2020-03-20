@@ -1,36 +1,35 @@
-  version: 2
-  jobs:
-    one:
-      docker:
-        - image: circleci/python:3.7.
-      steps:
-        - checkout
-        - run: ls -l
-        - run: mkdir mylab
-        - run: cd mylab
-        - run: touch mylab.txt
-        - run: echo "I'm here"
-        - persist_to_workspace:
-          root: mylab
-          paths:
-            - mylab.txt
-    two:
-      docker:
-        - image: circleci/python:3.7.
-      steps:
-        - checkout
-        - run: echo "And I'm here"
-        - attach_workspace:
-          at: mylab
-        - run: cat mylab/mylab.txt
- 
-   workflow:
-     version: 2
-     one_and_two:
-       jobs:
-         - one
-         - two:
-           requires:
-             - one
+version: 2
+ jobs:
+   one:
+     docker:
+       - image: circleci/python:3.7.
+     steps:
+       - checkout
+       - run: ls -l
+       - run: mkdir mylab
+       - run: cd mylab
+       - run: touch mylab.txt
+       - run: echo "I'm here"
+       - persist_to_workspace:
+         root: mylab
+         paths:
+           - mylab.txt
+   two:
+     docker:
+       - image: circleci/python:3.7.
+     steps:
+       - checkout
+       - run: echo "And I'm here"
+       - attach_workspace:
+         at: mylab
+       - run: cat mylab/mylab.txt
+ workflow:
+   version: 2
+    one_and_two:
+      jobs:
+        - one
+        - two:
+          requires:
+            - one
 
         
