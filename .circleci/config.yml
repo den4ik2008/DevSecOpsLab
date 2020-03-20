@@ -11,8 +11,8 @@ jobs:
       - run: touch mylab.txt
       - run: echo "I'm here"
       - persist_to_workspace:
-        root: mylab
-        paths:
+         root: mylab
+         paths: 
           - mylab.txt
   two:
    docker:
