@@ -6,16 +6,15 @@ jobs:
    steps:
       - checkout
       - run: ls -l
-      - run: mkdir mylab
-      - run: cd mylab
-      - run: touch mylab
-      - run: ls -l
+      - run: mkdir -p mylab
+      - run: touch mylab/mylab.txt
+      - run: ls -l mylab/
       - run: pwd
       - run: echo "I'm here"
       - persist_to_workspace:
          root: mylab
          paths: 
-          - mylab
+          - mylab.txt
   two:
    docker:
      - image: circleci/python:3.7
