@@ -21,7 +21,7 @@ jobs:
      - checkout
      - run: echo "And I'm here"
      - attach_workspace:
-       at: mylab
+        at: mylab
      - run: cat mylab/mylab.txt
 workflows:
  version: 2
