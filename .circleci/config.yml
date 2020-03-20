@@ -1,6 +1,5 @@
 version: 2
 jobs:
- build:
   one:
    docker:
     - image: circleci/python:3.7.
@@ -15,7 +14,6 @@ jobs:
         root: mylab
         paths:
           - mylab.txt
-build:
  two:
    docker:
      - image: circleci/python:3.7.
