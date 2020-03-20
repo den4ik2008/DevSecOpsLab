@@ -24,13 +24,13 @@
           at: mylab
         - run: cat mylab/mylab.txt
  
- workflow:
-   version: 2
-   one_and_two:
-     jobs:
-       - one
-       - two:
-         requires:
-           - one
+   workflow:
+     version: 2
+     one_and_two:
+       jobs:
+         - one
+         - two:
+           requires:
+             - one
 
         
