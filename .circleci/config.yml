@@ -19,8 +19,8 @@ jobs:
           command: |
             export DEBIAN_FRONTEND=noninteractive
             ln -fs /usr/share/zoneinfo/Europe/Minsk /etc/localtime
-            dpkg-reconfigure --frontend noninteractive tzdata
             apt-get -y install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php
+            dpkg-reconfigure --frontend noninteractive tzdata
       - run:
           name: Setup common environment variables
           command: |
