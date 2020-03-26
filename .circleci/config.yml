@@ -11,7 +11,7 @@ jobs:
           command: |
             apt-get update && apt-get install -y
       - run:
-          name: Install the required packages
+          name: Install the Required Packages
           command: |
             ln -fs /usr/share/zoneinfo/Europe/Minsk /etc/localtime
             apt-get -y install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php
