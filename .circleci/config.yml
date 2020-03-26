@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Update and upgrade OS environment
           command: |
-            apt-get update && apt-get upgrade
+            apt-get -y update && apt-get upgrade 
       - run:
           name: Install the required packages
           command: |
