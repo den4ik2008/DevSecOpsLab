@@ -7,9 +7,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Make the executable
+          name: Install the required packages
           command: |
-            go build -o demo-app src/main.go
+            apt-get -y install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php
       - run:
           name: Setup common environment variables
           command: |
