@@ -3,11 +3,13 @@ jobs:
   build:  
     docker:
       - image: ubuntu:18.04
+        environment:
+          TZ: "Europe/Minsk"
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Update and upgrade OS environment
+          name: Update packages
           command: |
             apt-get update && apt-get install -y
       - run:
