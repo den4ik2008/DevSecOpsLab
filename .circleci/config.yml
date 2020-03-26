@@ -3,10 +3,10 @@ jobs:
   build:  
     docker:
       - image: ubuntu:18.04
-        environment:
-          TZ: "Europe/Minsk"
-    environment:
-      TZ: "Europe/Minsk"
+#        environment:
+#          TZ: "Europe/Minsk"
+#    environment:
+#      TZ: "Europe/Minsk"
     steps:
       - checkout
       - setup_remote_docker
@@ -17,6 +17,9 @@ jobs:
       - run:
           name: Install the required packages
           command: |
+            export DEBIAN_FRONTEND=noninteractive
+            ln -fs /usr/share/zoneinfo/Europe/Minsk /etc/localtime
+            dpkg-reconfigure --frontend noninteractive tzdata
             apt-get -y install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php
       - run:
           name: Setup common environment variables
