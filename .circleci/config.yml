@@ -3,8 +3,8 @@ jobs:
   build:  
     docker:
       - image: ubuntu:18.04
-        environment:
-          TZ: "Europe/Minsk"
+    environment:
+      TZ: "Europe/Minsk"
     steps:
       - checkout
       - setup_remote_docker
