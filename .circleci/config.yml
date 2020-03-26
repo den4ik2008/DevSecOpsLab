@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: ubuntu:18.04
     environment:
-      TZ: "Europe/Minsk"
+      TZ: "/usr/share/zoneinfo/Europe/Minsk"
     steps:
       - checkout
       - setup_remote_docker
