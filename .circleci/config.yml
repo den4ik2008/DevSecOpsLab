@@ -13,9 +13,9 @@ jobs:
       - run:
           name: Install the required packages and start the Docker
           command: |
-            apt-get -y install docker.io wget systemd
-            systemctl start docker
-            systemctl enable docker
+            apt-get -y install docker.io wget
+            service docker start 
+            service docker enable
       - run:
           name: Copy the Source
           command: |
