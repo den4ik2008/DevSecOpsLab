@@ -11,11 +11,9 @@ jobs:
           command: |
             apt-get update && apt-get install -y
       - run:
-          name: Install the required packages and start the Docker
+          name: Install the required packages
           command: |
-            apt-get -y install docker wget
-            service docker start 
-            service docker enable
+            apt-get -y install wget
       - run:
           name: Copy the Source
           command: |
