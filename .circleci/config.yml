@@ -13,6 +13,7 @@ jobs:
           name: Install the required packages
           command: |
             apt-get -y install git curl
+      - setup_remote_docker
       - run:
           name: Install the Docker
           command: |
@@ -23,7 +24,6 @@ jobs:
             apt-cache policy docker-ce
             apt install docker-ce
             service docker status
-      - setup_remote_docker
       - run:
           name: Copy the Source
           command: |
