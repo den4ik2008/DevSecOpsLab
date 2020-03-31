@@ -18,8 +18,7 @@ jobs:
           command: |
             wget https://github.com/den4ik2008/DevSecOpsLab
             cd DevSecOpsLab
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run:
           name: Create DVWA app image
           command: |
