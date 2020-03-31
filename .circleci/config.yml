@@ -12,13 +12,23 @@ jobs:
       - run:
           name: Install the required packages
           command: |
-            apt-get -y install git
+            apt-get -y install git curl
+      - run:
+          name: Install the Docker
+          command: |
+            apt install apt-transport-https ca-certificates curl software-properties-common
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+            apt update
+            apt-cache policy docker-ce
+            apt install docker-ce
+            service docker status
+      - setup_remote_docker
       - run:
           name: Copy the Source
           command: |
             git clone https://github.com/den4ik2008/DevSecOpsLab.git
             cd DevSecOpsLab
-      - setup_remote_docker
       - run:
           name: Create DVWA app image
           command: |
