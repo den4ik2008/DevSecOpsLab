@@ -5,7 +5,6 @@ jobs:
       - image: ubuntu:18.04
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           name: Update packages
           command: |
@@ -18,6 +17,9 @@ jobs:
           name: Copy the Source
           command: |
             wget https://github.com/den4ik2008/DevSecOpsLab
+            cd DevSecOpsLab
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Create DVWA app image
           command: |
