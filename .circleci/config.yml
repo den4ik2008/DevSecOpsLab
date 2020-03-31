@@ -11,10 +11,19 @@ jobs:
           command: |
             apt-get update && apt-get install -y
       - run:
-          name: Install the Required Packages
+          name: Install the required packages and start the Docker
           command: |
-            ln -fs /usr/share/zoneinfo/Europe/Minsk /etc/localtime
-            apt-get -y install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php
+            apt-get -y install docker.io wget
+            systemctl start docker
+            systemctl enable docker
+      - run:
+          name: Copy the Source
+          command: |
+            wget https://github.com/den4ik2008/DevSecOpsLab
+      - run:
+          name: Create DVWA app image
+          command: |
+            docker build --tag dvwa:1.0 .
       - run:
           name: Setup common environment variables
           command: |
