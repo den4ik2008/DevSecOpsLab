@@ -23,6 +23,7 @@ jobs:
             apt update
             apt-cache policy docker-ce
             apt -y install docker-ce
+            service docker start
             service docker status
             docker --version
       - run:
